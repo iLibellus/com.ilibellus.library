@@ -15,6 +15,11 @@ class Book {
     static constraints = {
     	titel blank:false
 		language blank:false
-		owner owner:false
+		origLanguage blank:true
+		editionYear blank:true
+		publishedYear blank:true
+		publisher blank:true
+		rating nullable:true
+		owner nullable:false
 	}
 }
