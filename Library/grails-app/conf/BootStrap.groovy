@@ -15,10 +15,10 @@ class BootStrap {
 		def Book book3 = new Book(titel:"Solen har sin gång", language:"Svenska", origLanguage:"English", editionYear:"1968", owner:owner).save()
 		def Book book4 = new Book(titel:"For Whom the Bell Tolls", language:"English", origLanguage:"English", editionYear:"2010", owner:owner).save()
 		
-		/*author1.addToBooks(book1).save()
+		author1.addToBooks(book1).save()
 		author1.addToBooks(book2).save()
 		author2.addToBooks(book3).save()
-		author2.addToBooks(book4).save()*/
+		author2.addToBooks(book4).save()
 		
     }
     def destroy = {

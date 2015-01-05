@@ -20,12 +20,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: bookInstance, field: 'owner', 'error')} required">
-	<label for="owner">
-		<g:message code="book.owner.label" default="Owner" />
+<div class="fieldcontain ${hasErrors(bean: bookInstance, field: 'origLanguage', 'error')} required">
+	<label for="origLanguage">
+		<g:message code="book.origLanguage.label" default="Orig Language" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="owner" name="owner.id" from="${com.ilibellus.library.Owner.list()}" optionKey="id" required="" value="${bookInstance?.owner?.id}" class="many-to-one"/>
+	<g:textField name="origLanguage" required="" value="${bookInstance?.origLanguage}"/>
 
 </div>
 
@@ -35,15 +35,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="editionYear" required="" value="${bookInstance?.editionYear}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: bookInstance, field: 'origLanguage', 'error')} required">
-	<label for="origLanguage">
-		<g:message code="book.origLanguage.label" default="Orig Language" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="origLanguage" required="" value="${bookInstance?.origLanguage}"/>
 
 </div>
 
@@ -65,12 +56,21 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: bookInstance, field: 'rating', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: bookInstance, field: 'rating', 'error')} ">
 	<label for="rating">
 		<g:message code="book.rating.label" default="Rating" />
+		
+	</label>
+	<g:field name="rating" type="number" value="${bookInstance.rating}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: bookInstance, field: 'owner', 'error')} required">
+	<label for="owner">
+		<g:message code="book.owner.label" default="Owner" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="rating" type="number" value="${bookInstance.rating}" required=""/>
+	<g:select id="owner" name="owner.id" from="${com.ilibellus.library.Owner.list()}" optionKey="id" required="" value="${bookInstance?.owner?.id}" class="many-to-one"/>
 
 </div>
 

@@ -28,13 +28,13 @@
 					
 						<g:sortableColumn property="language" title="${message(code: 'book.language.label', default: 'Language')}" />
 					
-						<th><g:message code="book.owner.label" default="Owner" /></th>
+						<g:sortableColumn property="origLanguage" title="${message(code: 'book.origLanguage.label', default: 'Orig Language')}" />
 					
 						<g:sortableColumn property="editionYear" title="${message(code: 'book.editionYear.label', default: 'Edition Year')}" />
 					
-						<g:sortableColumn property="origLanguage" title="${message(code: 'book.origLanguage.label', default: 'Orig Language')}" />
-					
 						<g:sortableColumn property="publishedYear" title="${message(code: 'book.publishedYear.label', default: 'Published Year')}" />
+					
+						<g:sortableColumn property="publisher" title="${message(code: 'book.publisher.label', default: 'Publisher')}" />
 					
 					</tr>
 				</thead>
@@ -43,16 +43,16 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td><g:link action="show" id="${bookInstance.id}">${fieldValue(bean: bookInstance, field: "titel")}</g:link></td>
-					
+						
 						<td>${fieldValue(bean: bookInstance, field: "language")}</td>
-					
-						<td>${fieldValue(bean: bookInstance, field: "owner")}</td>
-					
-						<td>${fieldValue(bean: bookInstance, field: "editionYear")}</td>
 					
 						<td>${fieldValue(bean: bookInstance, field: "origLanguage")}</td>
 					
+						<td>${fieldValue(bean: bookInstance, field: "editionYear")}</td>
+					
 						<td>${fieldValue(bean: bookInstance, field: "publishedYear")}</td>
+					
+						<td>${fieldValue(bean: bookInstance, field: "publisher")}</td>
 					
 					</tr>
 				</g:each>

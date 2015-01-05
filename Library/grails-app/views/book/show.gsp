@@ -31,7 +31,7 @@
 					
 				</li>
 				</g:if>
-			
+				
 				<g:if test="${bookInstance?.language}">
 				<li class="fieldcontain">
 					<span id="language-label" class="property-label"><g:message code="book.language.label" default="Language" /></span>
@@ -41,11 +41,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${bookInstance?.owner}">
+				<g:if test="${bookInstance?.origLanguage}">
 				<li class="fieldcontain">
-					<span id="owner-label" class="property-label"><g:message code="book.owner.label" default="Owner" /></span>
+					<span id="origLanguage-label" class="property-label"><g:message code="book.origLanguage.label" default="Orig Language" /></span>
 					
-						<span class="property-value" aria-labelledby="owner-label"><g:link controller="owner" action="show" id="${bookInstance?.owner?.id}">${bookInstance?.owner?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="origLanguage-label"><g:fieldValue bean="${bookInstance}" field="origLanguage"/></span>
 					
 				</li>
 				</g:if>
@@ -55,15 +55,6 @@
 					<span id="editionYear-label" class="property-label"><g:message code="book.editionYear.label" default="Edition Year" /></span>
 					
 						<span class="property-value" aria-labelledby="editionYear-label"><g:fieldValue bean="${bookInstance}" field="editionYear"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${bookInstance?.origLanguage}">
-				<li class="fieldcontain">
-					<span id="origLanguage-label" class="property-label"><g:message code="book.origLanguage.label" default="Orig Language" /></span>
-					
-						<span class="property-value" aria-labelledby="origLanguage-label"><g:fieldValue bean="${bookInstance}" field="origLanguage"/></span>
 					
 				</li>
 				</g:if>
@@ -91,6 +82,15 @@
 					<span id="rating-label" class="property-label"><g:message code="book.rating.label" default="Rating" /></span>
 					
 						<span class="property-value" aria-labelledby="rating-label"><g:fieldValue bean="${bookInstance}" field="rating"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${bookInstance?.owner}">
+				<li class="fieldcontain">
+					<span id="owner-label" class="property-label"><g:message code="book.owner.label" default="Owner" /></span>
+					
+						<span class="property-value" aria-labelledby="owner-label"><g:link controller="owner" action="show" id="${bookInstance?.owner?.id}">${bookInstance?.owner?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

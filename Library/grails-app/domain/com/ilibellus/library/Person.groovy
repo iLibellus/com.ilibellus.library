@@ -10,6 +10,6 @@ class Person {
 	}
 	
 	def String toString() {
-		"$firstName"
+		return this.firstName + ", " + this.lastName
 	}
 }

@@ -15,11 +15,15 @@ class Book {
     static constraints = {
     	titel blank:false
 		language blank:false
-		origLanguage blank:true
-		editionYear blank:true
-		publishedYear blank:true
-		publisher blank:true
-		rating nullable:true
+		origLanguage blank:true, nullable:true
+		editionYear blank:true, nullable:true
+		publishedYear blank:true, nullable:true
+		publisher blank:true, nullable:true
+		rating blank:true, nullable:true
 		owner nullable:false
+	}
+	
+	def String toString() {
+		this.titel
 	}
 }
