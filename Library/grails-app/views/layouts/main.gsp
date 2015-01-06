@@ -21,5 +21,16 @@
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
+		
+		<!-- Logout anywhere from the app-->
+		<div class="nav-collapse">
+                    <ul class="nav pull-right">
+                        <sec:ifLoggedIn>
+                        <li>
+                            <g:link controller="logout" action="index">Logout</g:link>
+                        </li>
+                        </sec:ifLoggedIn>
+                    </ul>
+                </div>
 	</body>
 </html>

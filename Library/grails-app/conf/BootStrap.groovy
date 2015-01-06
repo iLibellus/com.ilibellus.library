@@ -1,6 +1,9 @@
 import com.ilibellus.library.Author;
 import com.ilibellus.library.Book;
 import com.ilibellus.library.Owner;
+import com.ilibellus.library.Role;
+import com.ilibellus.library.User;
+import com.ilibellus.library.UserRole;
 
 class BootStrap {
 
@@ -20,6 +23,21 @@ class BootStrap {
 		author2.addToBooks(book3).save()
 		author2.addToBooks(book4).save()
 		
+		/*The default password is 'password'*/
+		def password = "password"
+		def User user = new User(username:"testuser", password:password, enabled:true, accountExpired:false, accountLocked:false, passwordExpired:false).save()
+		def Role role = new Role(authority : "ROLE_USER").save(flush: true, insert: true)
+		
+		//def user1 = new User(firstName:"Anna", lastName:"Wentzel Svärd")
+		
+		assert User.count() == 1
+		/*create the first user role map*/
+		UserRole.create user, role, true
+		
+		assert UserRole.count() == 1
+		
+		//def userRole = Role.findByAuthority('ROLE_USER') ?: new Role(authority: 'ROLE_USER').save(failOnError: true)
+		//def adminRole = Role.findByAuthority('ROLE_ADMIN') ?: new Role(authority: 'ROLE_ADMIN').save(failOnError: true)
     }
     def destroy = {
     }
