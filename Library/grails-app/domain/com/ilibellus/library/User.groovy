@@ -1,6 +1,6 @@
 package com.ilibellus.library
 
-class User /*extends Person*/ {
+class User extends Owner {
 
 	transient springSecurityService
 
@@ -14,8 +14,8 @@ class User /*extends Person*/ {
 	static transients = ['springSecurityService']
 
 	static constraints = {
-		//username blank:false, size:5..15,matches:/[\S]+/, unique:true
-        //password blank:false, size:5..15,matches:/[\S]+/
+		username blank:false
+        password blank:false
 	}
 
 	static mapping = {
@@ -28,7 +28,6 @@ class User /*extends Person*/ {
 
 	def beforeInsert() {
 		encodePassword()
-		println 'password'
 	}
 
 	def beforeUpdate() {

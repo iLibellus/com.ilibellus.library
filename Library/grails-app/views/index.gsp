@@ -1,122 +1,70 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta name="layout" content="main"/>
-		<title>Welcome to Grails</title>
-		<style type="text/css" media="screen">
-			#status {
-				background-color: #eee;
-				border: .2em solid #fff;
-				margin: 2em 2em 1em;
-				padding: 1em;
-				width: 12em;
-				float: left;
-				-moz-box-shadow: 0px 0px 1.25em #ccc;
-				-webkit-box-shadow: 0px 0px 1.25em #ccc;
-				box-shadow: 0px 0px 1.25em #ccc;
-				-moz-border-radius: 0.6em;
-				-webkit-border-radius: 0.6em;
-				border-radius: 0.6em;
-			}
-
-			.ie6 #status {
-				display: inline; /* float double margin fix http://www.positioniseverything.net/explorer/doubled-margin.html */
-			}
-
-			#status ul {
-				font-size: 0.9em;
-				list-style-type: none;
-				margin-bottom: 0.6em;
-				padding: 0;
-			}
-
-			#status li {
-				line-height: 1.3;
-			}
-
-			#status h1 {
-				text-transform: uppercase;
-				font-size: 1.1em;
-				margin: 0 0 0.3em;
-			}
-
-			#page-body {
-				margin: 2em 1em 1.25em 18em;
-			}
-
-			h2 {
-				margin-top: 1em;
-				margin-bottom: 0.3em;
-				font-size: 1em;
-			}
-
-			p {
-				line-height: 1.5;
-				margin: 0.25em 0;
-			}
-
-			#controller-list ul {
-				list-style-position: inside;
-			}
-
-			#controller-list li {
-				line-height: 1.3;
-				list-style-position: inside;
-				margin: 0.25em 0;
-			}
-
-			@media screen and (max-width: 480px) {
-				#status {
-					display: none;
-				}
-
-				#page-body {
-					margin: 0 1em 1em;
-				}
-
-				#page-body h1 {
-					margin-top: 0;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div id="status" role="complementary">
-			<h1>Application Status</h1>
-			<ul>
-				<li>App version: <g:meta name="app.version"/></li>
-				<li>Grails version: <g:meta name="app.grails.version"/></li>
-				<li>Groovy version: ${GroovySystem.getVersion()}</li>
-				<li>JVM version: ${System.getProperty('java.version')}</li>
-				<li>Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</li>
-				<li>Controllers: ${grailsApplication.controllerClasses.size()}</li>
-				<li>Domains: ${grailsApplication.domainClasses.size()}</li>
-				<li>Services: ${grailsApplication.serviceClasses.size()}</li>
-				<li>Tag Libraries: ${grailsApplication.tagLibClasses.size()}</li>
-			</ul>
-			<h1>Installed Plugins</h1>
-			<ul>
-				<g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
-					<li>${plugin.name} - ${plugin.version}</li>
-				</g:each>
-			</ul>
-		</div>
-		<div id="page-body" role="main">
-			<h1>Welcome to Grails</h1>
-			<p>Congratulations, you have successfully started your first Grails application! At the moment
-			   this is the default page, feel free to modify it to either redirect to a controller or display whatever
-			   content you may choose. Below is a list of controllers that are currently deployed in this application,
-			   click on each to execute its default action:</p>
-
-			<div id="controller-list" role="navigation">
-				<h2>Available Controllers:</h2>
-				<ul>
-					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-					</g:each>
-				</ul>
-			</div>
-		</div>
-	</body>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>iLibillus - your on-line book organizer</title>
+<link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.css')}" type="text/css">
+<link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap-responsive.css')}" type="text/css">
+<r:external uri="/js/jquery.js"/>
+<r:external uri="/js/bootstrap.min.js"/>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <h1>iLibillus <small>- your on-line book organizer</small></h1>
+        <p>iLibillus allows you to store and organize your homelibrary on-line, browse your friends libraries, rate books, write comments
+        and buy and sell books in the on-line iLibillus atinquarium! 
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-md-6 col-lg-6">
+            <h2>${message(code: 'user.register.ask.label', default: 'Need an account?')}</h2>
+            
+            <p><h4>Sign up now</h4> to start your own personal library.</p>
+            <p><a href="${createLink(uri: '/register')}" target="_blank" class="btn btn-success">${message(code: 'user.register.label', default: 'Register')} &raquo;</a></p>
+            <a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
+        </div>
+        <div class="col-xs-6-md-6 col-lg-2">
+            <h2>${message(code: 'user.already.member.label', default: 'Already a member')}</h2>
+            <p>Log in to your iLibellus account.</p>
+            <p><a href="http://www.tutorialrepublic.com/css-tutorial/" target="_blank" class="btn btn-success">${message(code: 'user.login.label', default: 'Login')}</a></p>
+            
+            
+            <div class='login'>
+            <g:if test='${flash.message}'>
+                <div class='alert alert-error'>${flash.message}</div>
+            </g:if>
+            <div class="row span12">
+                <legend><g:message code="springSecurity.login.header"/></legend>
+                <div class="span6">
+                    <form action='${postUrl}' method='POST' id='loginForm' class='form-horizontal' autocomplete='off'>
+                        <div class="control-group">
+                            <label class="control-label" for='username'><g:message code="springSecurity.login.username.label"/>:</label>
+                            <div class="controls">
+                                <input type='text' class='text_' name='j_username' id='username'/>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for='password'><g:message code="springSecurity.login.password.label"/>:</label>
+                            <div class="controls">
+                                <input type='password' class='text_' name='j_password' id='password'/>
+                            </div>
+                        </div>
+                        <div class="control-group" id="remember_me_holder">
+                            <div class="controls">
+                                <label class="checkbox" for='remember_me'><g:message code="springSecurity.login.remember.me.label"/>
+                                    <input type='checkbox' name='${rememberMeParameter}' id='remember_me'
+                                           <g:if test='${hasCookie}'>checked='checked'</g:if>/>
+                                </label>
+                                <input class="btn btn-primary" type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </div>
+        </div>
+	</div>
+</div>
+</body>
 </html>

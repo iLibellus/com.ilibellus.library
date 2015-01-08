@@ -74,5 +74,6 @@ grails.project.dependency.resolution = {
         //compile ":handlebars-asset-pipeline:1.3.0.3"
 		
 		compile ':spring-security-core:2.0-RC4'
+		compile ":twitter-bootstrap:3.3.1"
     }
 }

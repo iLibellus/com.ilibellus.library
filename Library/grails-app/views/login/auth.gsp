@@ -36,18 +36,6 @@
                         </div>
                     </form>
                 </div>
-                <div class="span4">
-                    <div class="">
-                        <dl class="dl-horizontal">
-                            <dt>Admin User (u/p):</dt>
-                            <dd>admin/admin</dd>
-                        </dl>
-                        <dl class="dl-horizontal">
-                            <dt>Guest User (u/p):</dt>
-                            <dd>guest/guest</dd>
-                        </dl>
-                    </div>
-                </div>
             </div>
     </div>
 </body>

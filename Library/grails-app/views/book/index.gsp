@@ -4,10 +4,12 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
+		<r:require modules="bootstrap"/>
 		<g:set var="entityName" value="${message(code: 'book.label', default: 'Book')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
+	<div class="container">
 		<a href="#list-book" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
@@ -20,7 +22,7 @@
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<table>
+			<table class="table table-bordered table-striped">
 			<thead>
 					<tr>
 					
@@ -62,5 +64,6 @@
 				<g:paginate total="${bookInstanceCount ?: 0}" />
 			</div>
 		</div>
+	</div>
 	</body>
 </html>

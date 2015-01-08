@@ -25,7 +25,7 @@ class BootStrap {
 		
 		/*The default password is 'password'*/
 		def password = "password"
-		def User user = new User(username:"testuser", password:password, enabled:true, accountExpired:false, accountLocked:false, passwordExpired:false).save()
+		def User user = new User(firstName:"Anna", lastName:"Wentzel Sv‰rd", address:"Kattgr‰nd 6", username:"testuser", password:password, enabled:true, accountExpired:false, accountLocked:false, passwordExpired:false).save()
 		def Role role = new Role(authority : "ROLE_USER").save(flush: true, insert: true)
 		
 		//def user1 = new User(firstName:"Anna", lastName:"Wentzel Sv√§rd")
