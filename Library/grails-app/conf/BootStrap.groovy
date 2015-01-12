@@ -25,10 +25,8 @@ class BootStrap {
 		
 		/*The default password is 'password'*/
 		def password = "password"
-		def User user = new User(firstName:"Anna", lastName:"Wentzel Svärd", address:"Kattgränd 6", username:"testuser", password:password, enabled:true, accountExpired:false, accountLocked:false, passwordExpired:false).save()
+		def User user = new User(firstName:"Anna", lastName:"Wentzel Svï¿½rd", email:"username", address:"Kattgrï¿½nd 6", username:"testuser", password:password, enabled:true, accountExpired:false, accountLocked:false, passwordExpired:false).save()
 		def Role role = new Role(authority : "ROLE_USER").save(flush: true, insert: true)
-		
-		//def user1 = new User(firstName:"Anna", lastName:"Wentzel SvÃ¤rd")
 		
 		assert User.count() == 1
 		/*create the first user role map*/

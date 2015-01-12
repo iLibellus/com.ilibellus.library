@@ -131,6 +131,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/favicon.ico':                ['permitAll'],
 	'/user/*':                		  ['IS_AUTHENTICATED_ANONYMOUSLY'],
 	'/book/*':                		  ['IS_AUTHENTICATED_ANONYMOUSLY'],
-	'/author/*':                	  ['IS_AUTHENTICATED_ANONYMOUSLY']
+	'/author/*':                	  ['IS_AUTHENTICATED_ANONYMOUSLY'],
+	'/owner/*':                	  	  ['ROLE_USER']
 ]
 

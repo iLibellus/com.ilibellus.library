@@ -30,7 +30,7 @@
            <!-- Trying to add icon to nav-bar -->
             <a class="navbar-brand" rel="home" href="#" title="Organize your books">
         		<img style="max-width:100px; margin-top: -7px;"
-             	src="images/glossy_book_icon.png">
+             	src="${resource(dir:"images", file: "glossy_book_icon.png") }"/>
     		</a>
     		<!-- Trying to add icon to nav-bar -->
     		

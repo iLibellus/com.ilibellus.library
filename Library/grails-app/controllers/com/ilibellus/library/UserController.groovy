@@ -103,46 +103,28 @@ class UserController {
     }
 	
 	def register() {
-		render view:"register"
+		render(view:"register")
+	}
+	
+	def test() {
+		render "HI THERE"
 	}
 	
 	def handleRegistration(){
-		def user = new User()
-		log.info("HANDLE REGISTRATION")
-		// using the log.info here will only print out the object, not a listing of it
-		println params
-		// create the property object
-		user.properties = params
-		if(params.password != params.confirm) {
-			flash.message = "The two passwords you entered dont match!"
-			render(view:'register', model:[user:user])
-		}
-		else if (user.password?.length() <= 3) {
-			flash.message = "The password length is under 3 characters."
-			render(view:'register', model:[user:user])
-		} else {
-			log.info "before save"
-			// lets hash the password
-			user.encodePassword()
-			if(user.save()) {
-				// also add this user to the authority system
-				//def userAuth = Authority.findByAuthority("ROLE_USER")
-				//userAuth.addToPeople(user)
-				// not sure if the save is necessary.
-				//userAuth.save()
-				// send a confirmation email
-				//sendAcknowledgment (user)
-				log.info "saved redirecting to user controller"
-				// they will be prompted to login when they
-				// go to an internal place anyway.
-				redirect(controller:'todo')
-			}
-			else {
-				log.info "didn't save"
-				println "didn't save"
-				flash.user = user
-				render(view:'register', model:[user:user])
-			}
+		render "HI"
+		if(request.method == 'POST') {
+			println "IN CONTROLLER"
+			def u = new User()
+			u.properties['username', 'password', 'firstName', 'lastName'] = params
+			if(u.password != params.confirm) {
+				u.errors.rejectValue("password", "user.password.dontmatch")
+				return [user:u]
+			} else if(u.save()) {
+				session.user = u
+				redirect controller:"store"
+			} else {
+				return [user:u]
+			} 
 		}
 	}
 	
