@@ -1,7 +1,7 @@
 package com.ilibellus.library
 
 class Owner extends Person {
-	String address
+	//String address
 
 	static hasMany = [books:Book]
 	 

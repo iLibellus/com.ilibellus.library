@@ -17,12 +17,12 @@
 			    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			                <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name" value="${user?.firstName}">
+			                <input type="text" name="firstName" id="firstName" class="form-control input-sm" placeholder="First Name" value="${user?.firstName}">
 			    					</div>
 			    				</div>
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			    						<input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name" value="${user?.lastName}">
+			    						<input type="text" name="lastName" id="lastName" class="form-control input-sm" placeholder="Last Name" value="${user?.lastName}">
 			    					</div>
 			    				</div>
 			    			</div>
@@ -48,12 +48,12 @@
 			    				</div>
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			    						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password" value="${user?.confirm}">
+			    						<input type="password" name="confirm" id="confirm" class="form-control input-sm" placeholder="Confirm Password" value="${user?.confirm}">
 			    					</div>
 			    				</div>
 			    			</div>
-			    			<g:link action="test" controller="user">
-			    				<input type="submit" name="test" id="submit_register" class="btn btn-info btn-block" value="${message(code: 'user.register.label', default: 'Register')}">
+			    			<g:link action="handleRegistration" controller="user">
+			    				<input type="submit" name="handleRegistration" id="submit_register" class="btn btn-info btn-block" value="${message(code: 'user.register.label', default: 'Register')}">
 			    			</g:link>
 			    		</form>
 			    	</div>

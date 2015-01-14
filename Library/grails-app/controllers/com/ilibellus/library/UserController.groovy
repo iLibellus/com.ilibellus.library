@@ -111,17 +111,18 @@ class UserController {
 	}
 	
 	def handleRegistration(){
-		render "HI"
 		if(request.method == 'POST') {
-			println "IN CONTROLLER"
 			def u = new User()
-			u.properties['username', 'password', 'firstName', 'lastName'] = params
+			u.properties['username', 'password', 'firstName', 'lastName', 'email'] = params
+			u.accountExpired = false
+			u.accountLocked = false
+			u.passwordExpired = false
 			if(u.password != params.confirm) {
 				u.errors.rejectValue("password", "user.password.dontmatch")
 				return [user:u]
 			} else if(u.save()) {
 				session.user = u
-				redirect controller:"store"
+				redirect action: "index"
 			} else {
 				return [user:u]
 			} 
@@ -137,3 +138,26 @@ class UserController {
 		}
 	}
 }
+
+
+class LoginCommand {
+	String login
+	String password
+	private u
+	User getUser() {
+		if(!u && login) {
+			u = User.findByLogin(login, [fetch:[purchasedSongs:'join']])
+		}
+		return u
+	}
+	static constraints = {
+		login blank:false, validator:{ val, obj ->
+			if(!obj.user)
+			return "user.not.found"
+		}
+		password blank:false, validator:{ val, obj ->
+			if(obj.user && obj.user.password != val)
+			return "user.password.invalid"
+		}
+	}
+  }

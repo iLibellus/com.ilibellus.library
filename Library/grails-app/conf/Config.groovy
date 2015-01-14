@@ -1,3 +1,5 @@
+import grails.plugin.springsecurity.SecurityConfigType;
+
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -121,17 +123,22 @@ log4j.main = {
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.ilibellus.library.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.ilibellus.library.UserRole'
 grails.plugin.springsecurity.authority.className = 'com.ilibellus.library.Role'
-grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-	'/':                              ['permitAll'],
-	'/index':                         ['permitAll'],
-	'/index.gsp':                     ['permitAll'],
-	'/assets/**':                     ['permitAll'],
-	'/**/js/**':                      ['permitAll'],
-	'/**/images/**':                  ['permitAll'],
-	'/**/favicon.ico':                ['permitAll'],
-	'/user/*':                		  ['IS_AUTHENTICATED_ANONYMOUSLY'],
-	'/book/*':                		  ['IS_AUTHENTICATED_ANONYMOUSLY'],
-	'/author/*':                	  ['IS_AUTHENTICATED_ANONYMOUSLY'],
-	'/owner/*':                	  	  ['ROLE_USER']
+//grails.plugin.springsecurity.controllerAnnotations.staticRules = []
+
+grails.plugin.springsecurity.rejectIfNoRule = false
+grails.plugin.springsecurity.securityConfigType = SecurityConfigType.InterceptUrlMap
+
+grails.plugin.springsecurity.interceptedUrl = [
+   '/':                  ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/index':             ['permitAll'],
+   '/index.gsp':         ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/assets/**':         ['permitAll'],
+   '/**/js/**':          ['permitAll'],
+   '/**/css/**':         ['permitAll'],
+   '/**/images/**':      ['permitAll'],
+   '/**/favicon.ico':    ['permitAll'],
+   '/login/**':          ['permitAll'],
+   '/logout/**':         ['permitAll'],
+   '/**':				 ['permitAll']
 ]
 

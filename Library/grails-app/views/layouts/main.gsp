@@ -5,6 +5,9 @@
 <title><g:layoutTitle default="Grails"/></title>
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.css')}" type="text/css">
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap-responsive.css')}" type="text/css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		
 		<r:external uri="/js/jquery.js"/>
 		<r:external uri="/js/bootstrap.min.js"/>
 		<g:layoutHead/>
@@ -28,12 +31,12 @@
             </button>
            
            <!-- Trying to add icon to nav-bar -->
-            <a class="navbar-brand" rel="home" href="#" title="Organize your books">
+            <!-- <a class="navbar-brand" rel="home" href="#" title="Organize your books">
         		<img style="max-width:100px; margin-top: -7px;"
-             	src="${resource(dir:"images", file: "glossy_book_icon.png") }"/>
-    		</a>
+             	src=<{resource(dir:"images", file: "glossy_book_icon.png") }/>
+    		</a> -->
     		<!-- Trying to add icon to nav-bar -->
-    		
+    		<a href="#" class="navbar-brand">iLibellus</a>
         </div>
         <!-- Collection of nav links and other content for toggling -->
         <div id="navbarCollapse" class="collapse navbar-collapse">

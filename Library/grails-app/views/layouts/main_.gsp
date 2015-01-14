@@ -17,6 +17,7 @@
 		<g:layoutHead/>
 	</head>
 	<body>
+	href="${createLink(controller:'user', action:'register')}
 		<div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a></div>
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
