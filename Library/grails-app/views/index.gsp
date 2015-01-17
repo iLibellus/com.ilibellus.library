@@ -38,8 +38,7 @@
          
                 <div>
                 <fieldset>
-                    <form action='${postUrl}' role="form" method='POST' id='loginForm' class='form-horizontal' autocomplete='off' >
-                       
+                    <form action='${postUrl}' role="form" method='POST' id='loginForm' class='form-horizontal' autocomplete='off' >               
                         <div style="margin-bottom: 10px" class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 							<input id="username" type="text" class="form-control" name="j_username" value="" placeholder="${message(code: "springSecurity.login.username.label")}">                                        
@@ -54,7 +53,7 @@
       						<g:message code="springSecurity.login.remember.me.label"/>
       						<g:if test='${hasCookie}'>checked='checked'</g:if>
     					</label>
-    					 <input class="btn btn-success pull-right" type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>
+    					 <input class="btn btn-success pull-right" type='submit' id="submit" value='${message(code:"springSecurity.login.button")}'/>
   						</div>
                     </form>
                     </fieldset>

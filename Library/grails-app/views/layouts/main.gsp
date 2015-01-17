@@ -7,9 +7,6 @@
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap-responsive.css')}" type="text/css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-		
-		<r:external uri="/js/jquery.js"/>
-		<r:external uri="/js/bootstrap.min.js"/>
 		<g:layoutHead/>
 		<r:layoutResources />
 <style type="text/css">
@@ -47,7 +44,14 @@
                 <li><a href="#">Notifications  <span class="badge">5</span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Login</a></li>
+            	<sec:ifLoggedIn>
+                	<li>
+                	<form name="logout" method="POST" action="${createLink(controller:'logout') }"> 
+                	<input type="submit" value="logout">
+                	</form>
+						
+					</li>
+				</sec:ifLoggedIn>
             </ul>
         </div>
     </nav>

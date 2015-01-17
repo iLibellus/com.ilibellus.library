@@ -128,10 +128,10 @@ grails.plugin.springsecurity.authority.className = 'com.ilibellus.library.Role'
 grails.plugin.springsecurity.rejectIfNoRule = false
 grails.plugin.springsecurity.securityConfigType = SecurityConfigType.InterceptUrlMap
 
-grails.plugin.springsecurity.interceptedUrl = [
-   '/':                  ['IS_AUTHENTICATED_ANONYMOUSLY'],
+grails.plugin.springsecurity.interceptUrlMap = [
+   '/':                  ['permitAll'],
    '/index':             ['permitAll'],
-   '/index.gsp':         ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/index.gsp':         ['permitAll'],
    '/assets/**':         ['permitAll'],
    '/**/js/**':          ['permitAll'],
    '/**/css/**':         ['permitAll'],
@@ -139,6 +139,6 @@ grails.plugin.springsecurity.interceptedUrl = [
    '/**/favicon.ico':    ['permitAll'],
    '/login/**':          ['permitAll'],
    '/logout/**':         ['permitAll'],
-   '/**':				 ['permitAll']
+   '/**':				 ['isFullyAuthenticated()']
 ]
 
