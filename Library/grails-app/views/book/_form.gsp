@@ -1,98 +1,94 @@
 <%@ page import="com.ilibellus.library.Book" %>
 
-<div class="form-group">
-<div class="fieldcontain ${hasErrors(bean: bookInstance, field: 'titel', 'error')} required">
-	<label for="titel">
+
+
+<div class="control-group fieldcontain ${hasErrors(bean: bookInstance, field: 'titel', 'error')} required">
+	<label class="control-label" for="titel">
 		<g:message code="book.titel.label" default="Titel" />
 		<span class="required-indicator">*</span>
 	</label>
-	<input type="text" class="form-control" name="name" id="title" value="${bookInstance?.titel}">
-</div>
-</div>
-
-<div class="form-group">
-<div class="fieldcontain ${hasErrors(bean: bookInstance, field: 'author', 'error')}">
-	<label for="author">
-		<g:message code="book.author.label" default="Author" />
-		<span class="required-indicator">*</span>
-	</label>
-	<input type="text" class="form-control" id="author" name="author" value="${bookInstance?.author}">
-</div>
+	<span class="controls"><g:textField name="titel" required="" value="${bookInstance?.titel}"/>
+</span>
 </div>
 
-<div class="form-group">
-<div class="fieldcontain ${hasErrors(bean: bookInstance, field: 'language', 'error')} required">
-	<label for="language">
+<div class="control-group fieldcontain ${hasErrors(bean: bookInstance, field: 'language', 'error')} required">
+	<label class="control-label" for="language">
 		<g:message code="book.language.label" default="Language" />
 		<span class="required-indicator">*</span>
 	</label>
-	<input type="text" name="language" class="form-control" value="${bookInstance?.language}">
-</div>
+	<span class="controls"><g:textField name="language" required="" value="${bookInstance?.language}"/>
+</span>
 </div>
 
-<div class="form-group">
-<div class="fieldcontain ${hasErrors(bean: bookInstance, field: 'origLanguage', 'error')}">
-	<label for="origLanguage">
+<div class="control-group fieldcontain ${hasErrors(bean: bookInstance, field: 'origLanguage', 'error')} ">
+	<label class="control-label" for="origLanguage">
 		<g:message code="book.origLanguage.label" default="Orig Language" />
 		
 	</label>
-	<input type="text" name="origLanguage" class="form-control" value="${bookInstance?.origLanguage}">
-</div>
+	<span class="controls"><g:textField name="origLanguage" value="${bookInstance?.origLanguage}"/>
+</span>
 </div>
 
-<div class="form-group">
-<div class="fieldcontain ${hasErrors(bean: bookInstance, field: 'editionYear', 'error')}">
-	<label for="editionYear">
+<div class="control-group fieldcontain ${hasErrors(bean: bookInstance, field: 'editionYear', 'error')} ">
+	<label class="control-label" for="editionYear">
 		<g:message code="book.editionYear.label" default="Edition Year" />
 		
 	</label>
-	<input type="text" name="editionYear" class="form-control" value="${bookInstance?.editionYear}">
-</div>
+	<span class="controls"><g:textField name="editionYear" value="${bookInstance?.editionYear}"/>
+</span>
 </div>
 
-<div class="form-group">
-<div class="fieldcontain ${hasErrors(bean: bookInstance, field: 'publishedYear', 'error')}">
-	<label for="publishedYear">
+<div class="control-group fieldcontain ${hasErrors(bean: bookInstance, field: 'publishedYear', 'error')} ">
+	<label class="control-label" for="publishedYear">
 		<g:message code="book.publishedYear.label" default="Published Year" />
+		
 	</label>
-	<input type="text" name="publishedYear" class="form-control" value="${bookInstance?.publishedYear}">
-</div>
+	<span class="controls"><g:textField name="publishedYear" value="${bookInstance?.publishedYear}"/>
+</span>
 </div>
 
-<div class="form-group">
-<div class="fieldcontain ${hasErrors(bean: bookInstance, field: 'publisher', 'error')}">
-	<label for="publisher">
+<div class="control-group fieldcontain ${hasErrors(bean: bookInstance, field: 'publisher', 'error')} ">
+	<label class="control-label" for="publisher">
 		<g:message code="book.publisher.label" default="Publisher" />
 		
 	</label>
-	<input type="text" name="publisher" class="form-control" value="${bookInstance?.publisher}">
-</div>
+	<span class="controls"><g:textField name="publisher" value="${bookInstance?.publisher}"/>
+</span>
 </div>
 
-<div class="form-group">
-<div class="fieldcontain ${hasErrors(bean: bookInstance, field: 'rating', 'error')}">
-	<label for="rating">
+<div class="control-group fieldcontain ${hasErrors(bean: bookInstance, field: 'rating', 'error')} ">
+	<label class="control-label" for="rating">
 		<g:message code="book.rating.label" default="Rating" />
+		
 	</label>
-	<input name="rating" type="number" class="form-control" value="${bookInstance.rating}">
-</div>
+	<span class="controls"><g:field name="rating" type="number" value="${bookInstance.rating}"/>
+</span>
 </div>
 
-<div class="form-group">
-<div class="fieldcontain ${hasErrors(bean: bookInstance, field: 'photo', 'error')}">
-	<label for="photo">
+<div class="control-group fieldcontain ${hasErrors(bean: bookInstance, field: 'photo', 'error')} ">
+	<label class="control-label" for="photo">
 		<g:message code="book.photo.label" default="Photo" />
+		
 	</label>
-	<input type="file" id="photo" name="photo" class="form-control"/>
-</div>
+	<span class="controls"><input type="file" id="photo" name="photo" />
+</span>
 </div>
 
-<div class="form-group">
-<div class="fieldcontain ${hasErrors(bean: bookInstance, field: 'owner', 'error')} required" >
-	<label for="owner">
+<div class="control-group fieldcontain ${hasErrors(bean: bookInstance, field: 'owner', 'error')} required">
+	<label class="control-label" for="owner">
 		<g:message code="book.owner.label" default="Owner" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="owner" name="owner.id" from="${com.ilibellus.library.Owner.list()}" optionKey="id" required="" value="${bookInstance?.owner?.id}" class="many-to-one"/>
+	<span class="controls"><g:select id="owner" name="owner.id" from="${com.ilibellus.library.Owner.list()}" optionKey="id" required="" value="${bookInstance?.owner?.id}" class="many-to-one"/>
+</span>
 </div>
+
+<div class="control-group fieldcontain ${hasErrors(bean: bookInstance, field: 'author', 'error')} required">
+	<label class="control-label" for="author">
+		<g:message code="book.author.label" default="Author" />
+		<span class="required-indicator">*</span>
+	</label>
+	<span class="controls"><g:select id="author" name="author.id" from="${com.ilibellus.library.Author.list()}" optionKey="id" required="" value="${bookInstance?.author?.id}" class="many-to-one"/>
+</span>
 </div>
+
