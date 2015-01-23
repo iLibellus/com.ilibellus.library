@@ -39,7 +39,7 @@
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                <li><a href="/Library/profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Messages</a></li>
                 <li><a href="#">Notifications  <span class="badge">5</span></a></li>
             </ul>

@@ -7,7 +7,7 @@
 	</head>
 <div class="container">
         <div class="row centered-form">
-        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-lg-4 col-sm-offset-2 col-md-offset-4 col-lg-offset-4">
         	<div class="panel panel-default">
         		<div class="panel-heading">
 			    		<h3 class="panel-title">Sign up for iLibellus <small>It's free!</small></h3>

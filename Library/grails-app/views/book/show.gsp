@@ -31,7 +31,7 @@
 					
 				</li>
 				</g:if>
-				
+			
 				<g:if test="${bookInstance?.language}">
 				<li class="fieldcontain">
 					<span id="language-label" class="property-label"><g:message code="book.language.label" default="Language" /></span>
@@ -82,6 +82,13 @@
 					<span id="rating-label" class="property-label"><g:message code="book.rating.label" default="Rating" /></span>
 					
 						<span class="property-value" aria-labelledby="rating-label"><g:fieldValue bean="${bookInstance}" field="rating"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${bookInstance?.photo}">
+				<li class="fieldcontain">
+					<span id="photo-label" class="property-label"><g:message code="book.photo.label" default="Photo" /></span>
 					
 				</li>
 				</g:if>

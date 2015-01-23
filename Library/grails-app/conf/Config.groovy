@@ -116,6 +116,8 @@ log4j.main = {
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
+		   
+	debug	'com.ilibellus.Library'
 }
 
 
@@ -123,16 +125,17 @@ log4j.main = {
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.ilibellus.library.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.ilibellus.library.UserRole'
 grails.plugin.springsecurity.authority.className = 'com.ilibellus.library.Role'
-//grails.plugin.springsecurity.controllerAnnotations.staticRules = []
+
+grails.plugin.springsecurity.auth.loginFormtUrl = '/login/auth'
+grails.plugin.springsecurity.failureHandler.defaultFailureUrl = '/login/auth'
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/book'
 
 grails.plugin.springsecurity.rejectIfNoRule = false
 grails.plugin.springsecurity.securityConfigType = SecurityConfigType.InterceptUrlMap
 
 grails.plugin.springsecurity.interceptUrlMap = [
-   '/':                  ['permitAll'],
-   '/index':             ['permitAll'],
-   '/index.gsp':         ['permitAll'],
    '/assets/**':         ['permitAll'],
+   '/user/register':     ['permitAll'],
    '/**/js/**':          ['permitAll'],
    '/**/css/**':         ['permitAll'],
    '/**/images/**':      ['permitAll'],
@@ -141,4 +144,5 @@ grails.plugin.springsecurity.interceptUrlMap = [
    '/logout/**':         ['permitAll'],
    '/**':				 ['isFullyAuthenticated()']
 ]
+
 

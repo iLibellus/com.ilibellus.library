@@ -8,9 +8,10 @@ class Book {
 	String publishedYear
 	String publisher
 	Integer rating
+	byte[] photo
 	Owner owner
 	
-	static belongsTo = [Author]
+	static belongsTo = [author:Author]
 	
     static constraints = {
     	titel blank:false
@@ -20,6 +21,7 @@ class Book {
 		publishedYear blank:true, nullable:true
 		publisher blank:true, nullable:true
 		rating blank:true, nullable:true
+		photo nullable:true
 		owner nullable:false
 	}
 	
