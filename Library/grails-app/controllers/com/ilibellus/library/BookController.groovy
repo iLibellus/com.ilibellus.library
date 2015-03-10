@@ -3,11 +3,14 @@ package com.ilibellus.library
 
 
 import static org.springframework.http.HttpStatus.*
+import grails.converters.JSON
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class BookController {
 
+	AutoCompleteService autoCompleteService
+	
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
@@ -20,7 +23,11 @@ class BookController {
     }
 
     def create() {
-        respond new Book(params)
+		def a = new Author(lastName:params.author?.lastName, firstName:params.author?.firstName).save()
+		params.author = a
+		//def b = new Book(params).save()
+		
+		respond new Book(params)
     }
 
     @Transactional
@@ -35,6 +42,14 @@ class BookController {
             return
         }
 
+		def a = new Author(lastName:params.author?.lastName, firstName:params.author?.firstName).save()
+		if(a == null) {
+			println 'Author is null'
+		} else {
+			println 'Author not null'
+		}
+		params.author = a
+		bookInstance.author = a
         bookInstance.save flush:true
 
         request.withFormat {
@@ -101,4 +116,20 @@ class BookController {
             '*'{ render status: NOT_FOUND }
         }
     }
+	
+	def authorFinder = {
+		render autoCompleteService.authorlist(params) as JSON
+	}
+	
+	def getAllAuthors = {
+		//render autoCompleteService.authorlist(params) as JSON
+//		def authorsFound = Author.withCriteria {
+//			ilike 'lastName', params.term + '%'
+//		   }
+//			render (authorsFound as JSON)
+//	}
+		def authors = Author.list()
+	
+		render authors as JSON
+	}
 }

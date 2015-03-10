@@ -8,20 +8,51 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-        <div class="container-fluid">
-            <div class="nav" role="navigation">
-                <ul class="nav nav-pills">
-                    <li class="active"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                    <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-                </ul>
-            </div>
-		<div id="list-book" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-				<div class="alert alert-success" role="status">${flash.message}</div>
-			</g:if>
-			<table>
-			<thead>
+        <div class="container">
+        <!-- Sub Navigation Begin -->
+	    <div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<ul class="nav nav-pills">
+				  <li>
+				  	<a class="small button secondary" href="${createLink(uri: '/')}">
+				  		<span class="glyphicon glyphicon-home"></span>
+				 		<g:message code="default.home.label"/>
+				 	</a>
+				  </li>
+				  <li>
+				  	<g:link class="small button secondary" action="create">
+				  		<span class="glyphicon glyphicon-save"></span>
+				  		<g:message code="default.new.label" args="[entityName]" />
+				  	</g:link>
+				  </li>
+				</ul>
+			</div>
+		</div>
+		<!-- Sub Navigation End -->
+            
+        <!-- Dataset -->
+		<div class="row">
+  			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  			
+  				<!-- Panel Header Begin -->
+				<div class="content-box-header">
+				 	<div class="panel-title"><g:message code="default.list.label" args="[entityName]" /></div>
+				    <div class="panel-options">
+				   		<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+				        <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+				   	</div>
+				</div>
+				<!-- Panel Header End -->
+		<div class="content-box-large box-with-header">	
+  				
+	  				<div class="table-responsive">  
+						<g:if test="${flash.message}">
+							<div class="alert alert-warning">
+								${flash.message}
+							</div>
+						</g:if>
+						<table class="table table-striped table-bordered table-hover">
+							<thead>
 					<tr>
 					
 						<g:sortableColumn property="titel" title="${message(code: 'book.titel.label', default: 'Titel')}" />
@@ -62,6 +93,8 @@
 				<g:paginate total="${bookInstanceCount ?: 0}" />
 			</div>
 		</div>
+	</div>
+	</div>
 	</div>
 	</body>
 </html>

@@ -4,10 +4,7 @@
 <meta charset="UTF-8">
 <title>iLibellus - your on-line book organizer</title>
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.css')}" type="text/css">
-<link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap-responsive.css')}" type="text/css">
-<r:external uri="/js/jquery.js"/>
-<r:external uri="/js/bootstrap.min.js"/>
-<g:javascript library="jquery"/>
+
 </head>
 <body>
 <div class="container">

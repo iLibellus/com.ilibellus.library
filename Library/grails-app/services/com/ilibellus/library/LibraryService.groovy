@@ -8,4 +8,6 @@ class LibraryService {
     def serviceMethod() {
 
     }
+	
+	Book createBook(String ownerId) {}
 }

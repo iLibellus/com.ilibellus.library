@@ -4,6 +4,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
+		<r:require modules="bootstrap"/>
 		<g:set var="entityName" value="\${message(code: '${domainClass.propertyName}.label', default: '${className}')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
@@ -21,7 +22,7 @@
 				<div class="alert alert-success" role="status">\${flash.message}</div>
 			</g:if>
 			<table>
-			<thead>
+			<table class="table table-bordered table-striped">
 					<tr>
 					<%  excludedProps = Event.allEvents.toList() << 'id' << 'version'
 						allowedNames = domainClass.persistentProperties*.name << 'dateCreated' << 'lastUpdated'

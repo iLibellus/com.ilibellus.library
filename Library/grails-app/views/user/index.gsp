@@ -12,20 +12,22 @@
 	<div class="container">
 		<a href="#list-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="navbar">
-		<div class="nav">
-			<ul class="nav">
+			<ul class="navbar">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-		</div>
-		<div id="list-user" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-				<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<table class="table table-bordered table-striped">
-			<thead>
+		<!-- Panel Content Begin -->
+  				<div class="content-box-large box-with-header">	
+  				
+	  				<div class="table-responsive">  
+						<g:if test="${flash.message}">
+							<div class="alert alert-warning">
+								${flash.message}
+							</div>
+						</g:if>
+						<table class="table table-striped table-bordered table-hover">
+					<thead>
 					<tr>
 					
 						<g:sortableColumn property="username" title="${message(code: 'user.username.label', default: 'Username')}" />

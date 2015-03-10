@@ -6,13 +6,27 @@
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>
-	<div class="container-fluid">
-          <div class="nav" role="navigation">
-              <ul class="nav nav-pills">
-                  <li class="active"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                  <li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-              </ul>
-         </div>
+	<div class="container">
+          <!-- Sub Navigation Begin -->
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<ul class="nav nav-pills">
+					<li>
+					  	<a class="small button secondary" href="${createLink(uri: '/')}">
+					  		<span class="glyphicon glyphicon-home"></span>
+					 		<g:message code="default.home.label"/>
+					 	</a>
+				  	</li>
+					<li>
+						<g:link class="small button secondary" action="index">
+					    	<span class="glyphicon glyphicon-list"></span>
+					     	<g:message code="default.list.label" args="[entityName]" />
+						</g:link>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- Sub Navigation End -->
 		<div id="create-book" class="content scaffold-create" role="main">
 			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
@@ -25,7 +39,7 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-			<g:form action="save" class="form-horizontal"  enctype="multipart/form-data">
+			<g:form action="save" class="form-horizontal" enctype="multipart/form-data">
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>

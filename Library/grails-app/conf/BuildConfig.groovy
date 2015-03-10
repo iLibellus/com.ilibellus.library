@@ -60,7 +60,7 @@ grails.project.dependency.resolution = {
         // plugins for the compile step
         compile ":scaffolding:2.1.2"
         compile ':cache:1.1.8'
-        compile ":asset-pipeline:1.9.9"
+        compile ":asset-pipeline:2.1.0"
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.6.1" // or ":hibernate:3.6.10.18"
@@ -74,7 +74,12 @@ grails.project.dependency.resolution = {
         //compile ":handlebars-asset-pipeline:1.3.0.3"
 		
 		compile ':spring-security-core:2.0-RC4'
-		compile ":twitter-bootstrap:3.3.1"
-		runtime ":lesscss-resources:1.3.3"
+		compile ":twitter-bootstrap:3.3.2.1"
+		//compile ":lesscss-resources:1.3.3"
+		compile ":twitter-typeahead:0.10.5"
+		runtime ":jquery-ui:1.10.4"
+//		compile (":query-ui:1.10.4") {
+//			excludes ':jquery'
+//		  }
     }
 }
