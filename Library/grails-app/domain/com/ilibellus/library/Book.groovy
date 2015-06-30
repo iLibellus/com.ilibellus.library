@@ -21,7 +21,7 @@ class Book {
 		publishedYear blank:true, nullable:true
 		publisher blank:true, nullable:true
 		rating blank:true, nullable:true
-		photo nullable:true
+		photo nullable:true, maxSize: 1024 * 1024 * 2
 		owner nullable:false
 	}
 	
